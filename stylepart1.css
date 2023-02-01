@@ -1,0 +1,119 @@
+
+* {
+margin: 0;
+padding: 0;
+outline: 0;
+border: 0;
+
+}
+
+body {
+background-size: 100% 100%;
+background-color: white;
+
+}
+
+/* this is the header bar at the top */
+.header {
+  position: fixed;
+  height: 100px;
+  width: 100%;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: 100;
+  font-size: 15px;
+  color: white;
+
+}
+
+/* this is to align the title in the header */
+.title {
+  position: fixed;
+  border: 1px solid black;
+  box-shadow: 8px 8px 8px  black;
+  mix-blend-mode: normal !important;
+  height: 80px;
+  top: 20px;
+  left: 20px;
+  font-size: 58px;
+  font-family: Trattatello, serif;
+  font-weight: 500;
+  font-style: italic;
+  color: black;
+  border-radius: 25px;
+  text-shadow: 0.5px 0 0 #ffffff, 0 -1px 0 #ffffff, 0 0.5px 0 #ffffff, -1px 0 0 #ffffff;
+
+}
+
+.text{
+  mix-blend-mode: normal !important;
+  z-index: 2;
+  position: fixed;
+  margin-top: 240px;
+  margin-left: 500px;;
+  margin-bottom: 0;
+  width: 500px;
+  height: 20px;
+  color: black;
+  font-family: sans-serif;
+  font-weight: 500;
+
+}
+
+
+figure img{
+  z-index: 2;
+  position: fixed;
+  margin-top: 170px;
+  margin-left: 350px;;
+  margin-bottom: 0;
+  cursor: zoom-in;
+  -webkit-transition: all 250ms ease-in-out 0ms;
+  -moz-transition: all 250ms ease-in-out 0ms;
+  transition: all 250ms ease-in-out 0ms;
+  filter: grayscale(20%) brightness(40%) saturate(200%) hue-rotate(-90deg) contrast(200%);
+}
+
+figure img:hover{
+  filter: grayscale(0%) brightness(100%) saturate(150%) hue-rotate(20deg) contrast(110%);
+}
+
+
+
+
+
+.menu {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  list-style-type: none;
+  font-family: sans-serif;
+  font-weight: 500;
+  font-style: normal;
+
+}
+
+.menu li {
+  float:left;
+  margin: 3px;
+}
+
+.menu a {
+    padding: 4px 7px;
+    text-decoration: none;
+    border-radius: 2px;
+    color: white;
+}
+
+.menu a:hover {
+    background-color: #ffffff;
+    color: black;
+    /* border: 1px solid black; */
+}
+
+/* added styling for the active menu item */
+.menu .active {
+  color: white;
+  background-color: black;
+}
+
+/* END MENU */
