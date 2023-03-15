@@ -498,7 +498,7 @@ input[type=range]::-ms-fill-upper {
   position: absolute;
   border-radius: 15px;
   border: 1px solid black;
-  inset: 10vh 24vh 10vh 40vh;
+  inset: 10vh 23vh 10vh 40vh;
   object-position: center;
   padding-left: 5rem;
   padding-right: 5rem;
