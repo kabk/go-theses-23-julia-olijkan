@@ -10,27 +10,68 @@ let stackOffset = 140;
 
 let imgs = [
 
-    { 'src': "images/1.png", 'width': 580, 'height': 400, },
-    { 'src': "images/2.png", 'width': 300, 'height': 300, 'title': 'insert text here', 'blendmode': 'MULTIPLY' },
-    { 'src': "images/3.png", 'width': 650, 'height': 400, 'title': 'insert text here', 'blendmode': 'MULTIPLY' },
-    { 'src': "images/5.png", 'width': 300, 'height': 300, 'title': ' insert text here', 'blendmode': 'MULTIPLY' },
-    { 'src': "images/9.png", 'width': 300, 'height': 250, 'title': ' insert text here', 'blendmode': 'color-dodge' },
-    { 'src': "images/10.png", 'width': 500, 'height': 500, 'title': ' insert text here', 'blendmode': 'MULTIPLY' },
-    { 'src': "images/12.png", 'width': 380, 'height': 280, },
-    { 'src': "images/13.png", 'width': 280, 'height': 380, },
-    { 'src': "images/14.png", 'width': 380, 'height': 280, 'blendmode': 'MULTIPLY'},
-    { 'src': "images/15.png", 'width': 280, 'height': 280, 'blendmode': 'color-burn'},
-    //{ 'src': "images/6.png", 'width': 680, 'height': 550, },
-    //{ 'src': "images/7.png", 'width': 1080, 'height': 1400, },
+    { 'src': "images/1.jpg", 'class': 'small-1', 'width': 780, 'height': 530, 'blendmode': 'lighten'},
+    { 'src': "images/2.jpg", 'width': 600, 'height': 700, 'blendmode': 'lighten' },
+    { 'src': "images/3.jpg", 'width': 600, 'height': 600, 'blendmode': 'MULTIPLY' },
+    { 'src': "images/4.jpg", 'width': 800, 'height': 800, 'blendmode': 'MULTIPLY' },
+    { 'src': "images/5.jpg", 'width': 850, 'height': 600, 'blendmode': 'color-dodge' },
+    { 'src': "images/6.jpg", 'width': 700, 'height': 1000, 'blendmode': 'MULTIPLY' },
+    { 'src': "images/7.jpg", 'width': 680, 'height': 450, 'blendmode': 'overlay' },
+    { 'src': "images/8.jpg", 'width': 680, 'height': 850, 'blendmode': 'color-dodge' },
+    { 'src': "images/9.jpg", 'width': 500, 'height': 500, 'blendmode': 'lighten'},
+    { 'src': "images/10.jpg", 'width': 800, 'height': 800, 'blendmode': 'lighten'},
+    { 'src': "images/11.jpg", 'width': 680, 'height': 480, 'blendmode': 'color-dodge'},
+    { 'src': "images/12.jpg", 'width': 580, 'height': 380, 'blendmode': 'lighten'},
+    { 'src': "images/13.jpg", 'width': 580, 'height': 580, 'blendmode': 'MULTIPLY'},
+    { 'src': "images/14.jpg", 'width': 580, 'height': 780, 'blendmode': 'lighten'},
+    { 'src': "images/15.jpg", 'width': 580, 'height': 780, 'blendmode': 'lighten'},
+    { 'src': "images/16.jpg", 'width': 680, 'height': 580, 'blendmode': 'overlay'},
+    { 'src': "images/17.jpg", 'width': 580, 'height': 780, 'blendmode': 'lighten'},
+    { 'src': "images/18.jpg", 'width': 780, 'height': 980, 'blendmode': 'lighten'},
+    { 'src': "images/19.jpg", 'width': 780, 'height': 980, 'blendmode': 'lighten'},
+    { 'src': "images/26.png", 'width': 680, 'height': 880 },
+    { 'src': "images/21.jpg", 'width': 680, 'height': 880, 'blendmode': 'overlay'},
+    { 'src': "images/22.png", 'width': 780, 'height': 580, 'blendmode': 'lighten'},
+    { 'src': "images/23.png", 'width': 580, 'height': 580, 'blendmode': 'color-dodge'},
+    { 'src': "images/24.jpg", 'width': 500, 'height': 290, 'blendmode': 'color-dodge'},
+    { 'src': "images/titel27.png", 'width': 1140, 'height': 300,'blendmode': 'MULTIPLY' },
 ];
 
 let typefaces = [ 'BigCaslon', 'Armag', 'AllianceNo2'];
-let colors = ['white', 'black', 'lightgrey'];
+let colors = ['white', 'black', 'lightgrey',];
 
+const value = document.querySelector("#value")
+const input = document.querySelector("#map_zoom_value")
+const map = document.querySelector("#map")
+
+input.addEventListener( "input", event => {
+  map.style.transform = "translate(-50%,-50%) scale("+input.value+")";
+
+  // value.innerText = input.value;
+})
+
+const menuToggle = document.getElementById( 'toggle1' )
+menuToggle.addEventListener( "change", event => {
+
+    const contentDiv = document.querySelector( '.content' );
+    const contentChapters = document.querySelectorAll( '.content > div' );
+
+
+    if ( !event.target.checked ) {
+      contentChapters.forEach( contentChapter => {
+          contentChapter.style.display = 'none';
+      } );
+      
+      contentDiv.classList.add( 'hidden' );
+    }
+})
+
+const event = new Event( "input" );
+input.dispatchEvent( event );
 
 baseOnLoad()
 
-let backgrounds = ['white.png', ];
+let backgrounds = ['', ];
 setRandomBackground();
 
 var originalX;
@@ -53,7 +94,6 @@ function sensorClick () {
     }
 }
 
-// create a popup when we click
 function createPopup(parent) {
     let p = document.getElementById("popup");
     if (p) {
@@ -77,8 +117,8 @@ function createPopup(parent) {
 // when our base is loaded
 function baseOnLoad() {
     var map = document.querySelector(".map");
-    maxLeft = map.width - 50;
-    maxTop = map.height - 50;
+    maxLeft = map.width - 100;
+    maxTop = map.height - 100;
 
     let maxImageWidth = -1;
     let maxImageHeight = -1;
@@ -93,63 +133,74 @@ function baseOnLoad() {
 	    }
     }
 
-    let rndStackX = maxImageWidth / 2 + stackOffset + Math.floor( Math.random() * ( map.clientWidth - maxImageWidth - 2 * stackOffset ) );
-    let rndStackY = maxImageHeight / 2 + stackOffset + Math.floor( Math.random() * ( map.clientHeight - maxImageHeight - 2 * stackOffset ) );
+    // GET SCALE FACTOR FROM MAP
+    let mapScale = map.style.transform.split( 'scale(' ).pop( )
+                                      .split( ')' ).shift( );
+    mapScale = parseFloat( mapScale );
+
+    let offsetX = -1 * map.clientWidth * ( mapScale - 1);
+    let offsetY = -1 * map.clientHeight * ( mapScale - 1);
+
+    console.log( mapScale, offsetX, offsetY );
 
     /* my smaller images: */
     for (let i = 0; i < imgs.length; i++) {
-        let sensorholder = document.createElement("div");
+      let sensorholder = document.createElement("div");
 
-        sensorholder.alt = i;
-        sensorholder.id = i;
-        sensorholder.style.width = imgs[ i ].width + 'px';
-        sensorholder.style.height = imgs[ i ].height + 'px';
+      sensorholder.alt = i;
+      sensorholder.id = i;
+      sensorholder.style.width = imgs[ i ].width + 'px';
+      sensorholder.style.height = imgs[ i ].height + 'px';
 
-        if ( imgs[ i ].title != undefined ) {
-	        sensorholder.dataset.title = imgs[ i ].title;
+      if ( imgs[ i ].title != undefined ) {
+        sensorholder.dataset.title = imgs[ i ].title;
 	    }
 
+      sensorholder.draggable = true;
+      sensorholder.classList.add("sensor");
+      sensorholder.classList.add("dragme");
+
+      // sensorholder.style.left = `${Math.floor(Math.random() * (map.clientWidth - imgs[ i ].width))}px`
+      // sensorholder.style.top = `${Math.floor(Math.random() * (map.clientHeight - imgs[ i ].height))}px`
 
 
-        sensorholder.draggable = true;
-        sensorholder.classList.add("sensor");
-        sensorholder.classList.add("dragme");
+      sensorholder.style.left = `${offsetX + Math.floor(Math.random() * map.clientWidth * mapScale - imgs[ i ].width / 2)}px`
+      sensorholder.style.top = `${offsetY + Math.floor(Math.random() * map.clientHeight * mapScale - imgs[ i ].height / 2 )}px`
 
-//         sensorholder.style.left = `${Math.floor(Math.random() * (map.clientWidth-imgs[ i ].width))}px`
-//         sensorholder.style.top = `${Math.floor(Math.random() * (map.clientHeight-imgs[ i ].height))}px`
-        sensorholder.style.left = `${rndStackX - imgs[ i ].width / 2 + ( 2 * Math.random( ) * stackOffset - stackOffset )}px`
-        sensorholder.style.top = `${rndStackY - imgs[ i ].height / 2 + ( 2 * Math.random( ) * stackOffset - stackOffset )}px`
+      // sensorholder.style.left = `${rndStackX - imgs[ i ].width / 2 + ( 2 * Math.random( ) * stackOffset - stackOffset )}px`
+      // sensorholder.style.top = `${rndStackY - imgs[ i ].height / 2 + ( 2 * Math.random( ) * stackOffset - stackOffset )}px`
 
-        let sensor = null;
-        console.log(imgs[i]);
-        if (imgs[i].src) {
-          sensor = document.createElement("img");
-          sensor.src = imgs[ i ].src;
-        } else {
-          var typeface = typefaces[Math.floor(Math.random()*typefaces.length)];
-          var color = colors[Math.floor(Math.random()*colors.length)];
-          sensor = document.createElement("div");
-          sensor.innerHTML = imgs[ i ].text;
-          sensor.classList.add('text')
-          sensor.style.fontFamily = typeface;
-          sensor.style.fontSize = (Math.floor(Math.random() * (160 - 20)) + 20) + 'px';
-          sensor.style.color = color
-        }
+      let sensor = null;
+      //console.log(imgs[i]);
+      if (imgs[i].src) {
+        sensor = document.createElement("img");
+        sensor.src = imgs[ i ].src;
+      } else {
+        var typeface = typefaces[Math.floor(Math.random()*typefaces.length)];
+        var color = colors[Math.floor(Math.random()*colors.length)];
+        sensor = document.createElement("div");
+        sensor.innerHTML = imgs[ i ].text;
+        sensor.classList.add('text')
+        sensor.style.fontFamily = typeface;
+        sensor.style.fontSize = (Math.floor(Math.random() * (160 - 20)) + 20) + 'px';
+        sensor.style.color = color
+      }
 
-        sensor.style.width = imgs[ i ].width + 'px';
-        sensor.style.height = imgs[ i ].height + 'px';
+      sensor.style.width = imgs[ i ].width + 'px';
+      sensor.style.height = imgs[ i ].height + 'px';
 
-        if ( imgs[ i ].blendmode != undefined ) {
-          sensorholder.style.mixBlendMode = imgs[ i ].blendmode;
-        }
+      if ( imgs[ i ].blendmode != undefined ) {
+        sensorholder.style.mixBlendMode = imgs[ i ].blendmode;
+      }
 
-        sensor.onclick = sensorClick;
+      sensor.onclick = sensorClick;
 
-        let parent = document.querySelector(".map");
-        sensorholder.appendChild(sensor)
-        parent.appendChild(sensorholder);
-        imagesOnDocument.push(sensor);
+      let parent = document.querySelector(".map");
+      sensorholder.appendChild(sensor)
+      parent.appendChild(sensorholder);
+      imagesOnDocument.push(sensor);
     }
+
     setZIndexes();
     clickEventOnImages();
 }
@@ -178,7 +229,7 @@ function startDrag(e) {
     if (!e) var e = window.event;
 
     // prevent default event
-    if(e.preventDefault) e.preventDefault();
+    // if(e.preventDefault) e.preventDefault();
 
     // IE uses srcElement, others use target
     targ = e.target ? e.target : e.srcElement;
@@ -208,19 +259,22 @@ function dragDiv(e) {
     if (!e) var e = window.event;
 
     var map = document.querySelector(".map");
-	maxLeft = map.offsetWidth - parseInt( targ.style.width );
+	  maxLeft = map.offsetWidth - parseInt( targ.style.width );
     maxTop = map.offsetHeight - parseInt( targ.style.height );
 
-    // move div element and check for borders
-    let newLeft = coordX + e.clientX - offsetX;
-    if (newLeft < maxLeft && newLeft > minLeft) targ.style.left = newLeft + 'px'
+    const zoomSlider = document.getElementById( 'map_zoom_value' );
+    const zoomFactor = zoomSlider.value;
 
-    let newTop = coordY + e.clientY - offsetY;
+    // move div element and check for borders
+    let newLeft = coordX + ( e.clientX - offsetX ) / zoomFactor;
+    // if (newLeft < maxLeft && newLeft > minLeft) 
+    targ.style.left = newLeft + 'px'
+
+    let newTop = coordY + ( e.clientY - offsetY ) / zoomFactor;
     console.log( minTop, newTop, maxTop );
 //    if (newTop < maxTop && newTop > minTop) targ.style.top = newTop + 'px'
-    if (newTop < maxTop && newTop > minTop) targ.style.top = newTop + 'px'
-
-    checkScrollOnDrag(e);
+    // if (newTop < maxTop && newTop > minTop) 
+    targ.style.top = newTop + 'px'
 
     return false; // prevent default event
 }
@@ -250,26 +304,61 @@ function arraymove(arr, fromIndex, toIndex) {
     arr.splice(toIndex, 0, element);
 }
 
+// document.addEventListener("scroll", function(){
+//   console.log(document.querySelector(".scrolldown").style.animationName);
+//   document.querySelector(".scrolldown").classList.add("scrolled")
+// });
 
-function checkScrollOnDrag(e) {
-  var yPosition = e.clientY;
-  var windowHeight = window.innerHeight;
-  var margin = 20;
+const contentDiv = document.querySelector( '.content' );
+const contentChapters = document.querySelectorAll( '.content > div' );
+const menuLinks = document.querySelectorAll( '.link1' );
 
-  if (yPosition > windowHeight - margin) {
-    window.scrollBy({
-      top: 10,
-      behavior: 'smooth'
-    });
-  } else if (yPosition < margin) {
-    window.scrollBy({
-      top: -10,
-      behavior: 'smooth'
-    });
-  }
+const displayChapter = chapterId => {
+  contentChapters.forEach( contentChapter => {
+    if ( contentChapter.id == chapterId ) {
+      contentChapter.style.display = 'block';
+    } else {
+      contentChapter.style.display = 'none';
+    }
+  } );
+  contentDiv.classList.remove( 'hidden' );
+  contentDiv.scrollTop = 0;
+  console.log( chapterId );
 }
+menuLinks.forEach( menuLink => {
+  menuLink.addEventListener( 'click', ( ) => {
 
-document.addEventListener("scroll", function(){
-  console.log(document.querySelector(".scrolldown").style.animationName);
-  document.querySelector(".scrolldown").classList.add("scrolled")
-});
+    menuLinks.forEach( otherLink => {
+        otherLink.classList.toggle( 'active', ( otherLink == menuLink ) );
+        // if ( otherLink == menuLink ) {
+        //     otherLink.classList.add( 'active' );
+        // } else {
+        //     otherLink.classList.remove( 'active' );
+        // }
+    } );
+
+    displayChapter( menuLink.dataset.chapter ); 
+  } );
+} );
+
+
+document.querySelectorAll(".close-btn").forEach(function(closeButtons){
+    closeButtons.addEventListener("click", function(){
+        closeButtons.parentNode.classList.add("hidden");
+    })
+})
+
+// document.querySelectorAll(".data-chapter").forEach(function(datachapters){
+//     datachapters.addEventListener("click", function(){
+//         document.querySelectorAll(".content").forEach(function(contenttabs){
+//             contenttabs.scrollTo(0,0);
+//         })
+//     })
+// })
+
+// document.querySelector(".p-menu1").addEventListener("click", function(){
+// if (!document.querySelector(".content").classList.contains("hidden")){
+    // document.querySelector(".content").classList.add("hidden");
+// }
+// })
+

@@ -10,10 +10,29 @@
 }
 
 @font-face {
+  font-family: 'Armag-FuryItalic';
+  src: url('fonts/Armag-furyItalic.woff');
+}
+
+@font-face {
   font-family: 'AllianceNo2';
   src: url('fonts/AllianceNo2-Regular.woff');
 }
 
+@font-face {
+  font-family: 'AllianceNo2-RegularItalic';
+  src: url('fonts/AllianceNo2-RegularItalic.woff');
+}
+
+@font-face {
+  font-family: 'AllianceNo2-SemiBold';
+  src: url('fonts/AllianceNo2-SemiBold.woff');
+}
+
+@font-face {
+  font-family: 'ZapfinoForteLTPro';
+  src: url('fonts/ZapfinoForteLTPro.woff');
+}
 
 * {
 margin: 0;
@@ -23,308 +42,415 @@ border: 0;
 
 }
 
-body {
-background-size: 100% 100%
+html,body { height: 10% }
 
+
+body.home { overflow: hidden }
+
+p input {
+  display: none;
 }
 
-/* this is the header bar at the top */
-.header {
-  position: fixed;
-  height: 80px;
-  width: 100%;
-  font-family: Helvetica, Arial, sans-serif;
-  font-weight: 100;
-  font-size: 20px;
-  color: white;
-
+/* Sup text */
+p input + label {
+  font: 0.7em / 1 system-ui, sans-serif;
+  vertical-align: super;
+  cursor: pointer;
+  transition: color 0.1s;
 }
 
-/* this is to align the title in the header */
-.title {
-  margin-left: auto;
-  margin-right: auto;
-  position: fixed;
-  border: 1px solid black;
-  box-shadow: 8px 8px 8px  black;
-  mix-blend-mode: normal !important;
-  height: 80px;
-  top: 40px;
-  left: 20px;
-  right: 20px;
-  font-size: 58px;
-  font-family: Trattatello;
-  font-weight: 500;
-  color: black;
-  border-radius: 25px;
-  text-shadow: 0.5px 0 0 #000, 0 -1px 0 #000, 0 0.5px 0 #000, -1px 0 0 #000;
-
+p input + label:before {
+  content: "[";
 }
 
-.secondtitle {
+p input + label:after {
+  content: "]";
+  padding-right: 3px;
+}
+
+p input + label:hover {
+  color: grey;
+}
+
+/* Footnote text */
+
+small {
+  color: grey;
+  font-size: 12px;
+  line-height: 15px;
+  font-family: AllianceNo2;
+}
+
+p input + label + small {
+  transition: opacity 0.2s 0.05s;
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+}
+
+p input:checked + label + small {
   position: relative;
-  mix-blend-mode: normal !important;
-  text-shadow:1px 1px 100px #000000, 1px 1px 3px #000000;
-  top: 127px;
-  left: 1110px;
-  font-size: 20px;
-  font-family: sans-serif;
-  font-weight: 300;
-  font-style: normal;
-  color: rgba(210, 42, 248, 1);
-  z-index: 0;
+  opacity: 1;
+  visibility: visible;
+}
+
+/******* Flavors *******/
+
+
+/* block reveal */
+p.block input:checked + label + small {
+  display: block;
+  color: grey;
+  padding: 1ch 5ch;
+}
+
+
+/******************
+ Page demo styles */
+
+
+
+p:before {
+  text-transform: uppercase;
+  position: absolute;
+  left: 0;
+  top: -2.5em;
+  font-size: 0.7em;
+  letter-spacing: 1px;
+  color: grey;
+  font-family: IBM Plex Sans, sans-serif;
+  content: attr(class);
+}
+
+/* The icon */
+.help-tip{
+  position: absolute;
+  top: 36px;
+  right: -12px;
+  transform: translate(-50%, -50%);
+  margin: auto;
+  text-align: center;
+  border: 5px solid black;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 25px;
+  line-height: 42px;
+  cursor: default;
 
 }
 
-.square {
-  border-radius: 0px;
-  margin-left: 1106px;
-  margin-top: 100px;
-  width: 150px;
-  height: 37px;
+.help-tip:before{
+    content:'i';
+    font-family: arial;
+    font-weight: bold;
+    font-size: 35px;
+    color:black;
+}
+
+.help-tip:hover p{
+    display:block;
+    transform-origin: 100% 0%;
+    -webkit-animation: fadeIn 0.8s ease;
+    animation: fadeIn 0.8s ease;
+}
+
+/* The tooltip */
+.help-tip p {    
+  display: none;
+  position: absolute;
+  font-family: Armag-FuryItalic;
+  -webkit-font-smoothing: antialiased;
+  text-align: center;
+  background-color: #FFFFFF;
+  padding: 12px 15px;
+  width: 120px;
+  height: fit-content;
+  left: -70%;
+  top: 50px;
+  transform: translate(-50%, 5%);
   border-radius: 10px;
-  background-color: black;
+/*  border: 1px solid #E0E0E0; */
+  box-shadow: 0 0px 20px 0 rgba(0,0,0,0.1);
+  opacity: 88%;
+  color: black;
+  font-size: 14px;
+  line-height: 19px;
+  z-index: 99;
+}
 
+.help-tip p a {
+  color: #067df7;
+  text-decoration: none;
+}
+
+.help-tip p a:hover {
+  text-decoration: underline;
+}
+
+/* The pointer of the tooltip */
+.help-tip p:before { 
+  position: absolute;
+  content: '';
+/*  width: 0;*/
+/*  height: 0;*/
+/*  border: 10px solid transparent;*/
+/*  border-bottom-color:#FFFFFF;*/
+/*  top: -9px;*/
+/*  left: 50%;*/
+/*  transform: translate(-50%, -50%);*/
+}
+
+ /* Prevents the tooltip from being hidden */
+.help-tip p:after {
+  width: 10px;
+  height: 40px;
+  content:'';
+  position: absolute;
+  top: -40px;
+  left: 0;
+}
+
+/* CSS animation */
+@-webkit-keyframes fadeIn {
+    0% { opacity:0; }
+    100% { opacity:100%; }
+}
+
+@keyframes fadeIn {
+    0% { opacity:0; }
+    100% { opacity:100%; }
 }
 
 
-
-/* MENU */
-
-.menu {
-  position: fixed;
-  top: 10px;
-  right: 10px;
-  list-style-type: none;
-  font-family: sans-serif;
-  font-weight: 500;
-  font-style: normal;
-
-}
-
-.menu li {
-  float:left;
-  margin: 3px;
-}
-
-.menu a {
-    padding: 4px 7px;
-    text-decoration: none;
-    border-radius: 2px;
-    color: rgba(0, 3, 0, 0.25);
-}
-
-.menu a:hover {
-    background-color: #ffffff;
-    color: black;
-    /* border: 1px solid black; */
-}
-
-/* added styling for the active menu item */
-.menu .active {
-  color: rgba(0, 3, 0, 0.25);
-
-}
-
-/* END MENU */
-
-.menu2 {
-  position: fixed;
-  top: 10px;
-  right: 1315px;
-  list-style-type: none;
-  font-family: sans-serif;
-  font-weight: 500;
-  font-style: normal;
-
-
-}
-
-.menu2 li {
-  float:left;
-  margin: 3px;
-}
-
-.menu2 a {
-    padding: 4px 7px;
-    text-decoration: none;
-    border-radius: 2px;
-    color: rgba(0, 3, 0, 0.25);
-}
-
-.menu2 a:hover {
-    background-color: white;
-    color: rgba(210, 42, 248, 1);
-    /* border: 1px solid black; */
-}
-
-/* added styling for the active menu item */
-.menu2 .active {
+::selection {
+  background-color: red;
   color: white;
+}
+
+.p-menu1 {
+  z-index: 999;
+}
+
+.hamburger1 {
+  position: relative;
+  height: 38px;
+  margin-left: 12px;
+  margin-top: 7px;
+  display: -ms-grid;
+  display: inline-block;
+  grid-template-rows: repeat(3, 1fr);
+  z-index: 999;
+}
+
+.hamburger1 div {
   background-color: black;
+  border-radius: 12px;
+  position: relative;
+  width: 55px;
+  height: 8px;
+  margin-top: 7px;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  z-index: 999;
+}
+.hamburger1 div:last-child {
+  position: absolute;
+  margin-top: -50px;
+  margin-left: -10px;
+  width: 70px;
+  height: 70px;
+  background: transparent;
 }
 
-.menu3 {
-  position: fixed;
-  top: 10px;
-  right: 1260px;
-  list-style-type: none;
-  font-family: sans-serif;
-  font-weight: 500;
-  font-style: normal;
-
-
+#toggle1 {
+  display: none;
 }
 
-.menu3 li {
-  float:left;
-  margin: 3px;
+#toggle1:checked + .hamburger1 .top {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  margin-top: 22.5px;
 }
 
-.menu3 a {
-    padding: 4px 7px;
-    text-decoration: none;
-    border-radius: 2px;
-    color: rgba(0, 3, 0, 0.25);
+#toggle1:checked + .hamburger1 .meat {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  margin-top: -7px;
 }
 
-.menu3 a:hover {
-    background-color: white;
-    color: rgba(210, 42, 248, 1);
-    /* border: 1px solid black; */
+#toggle1:checked + .hamburger1 .bottom {
+  -webkit-transform: scale(0);
+          transform: scale(0);
 }
 
-/* added styling for the active menu item */
-.menu3 .active {
-  color: white;
-  background-color: black;
-}
-
-
-.menu4 {
-  position: fixed;
-  top: 10px;
-  right: 1195px;
-  list-style-type: none;
-  font-family: sans-serif;
-  font-weight: 500;
-  font-style: normal;
-
-
-}
-
-.menu4 li {
-  float:left;
-  margin: 3px;
-}
-
-.menu4 a {
-    padding: 4px 7px;
-    text-decoration: none;
-    border-radius: 2px;
-    color: rgba(0, 3, 0, 0.25);
-}
-
-.menu4 a:hover {
-    background-color: white;
-    color: rgba(210, 42, 248, 1);
-    /* border: 1px solid black; */
-}
-
-/* added styling for the active menu item */
-.menu4 .active {
-  color: white;
-  background-color: black;
-}
-
-.menu5 {
-  position: fixed;
-  top: 10px;
-  right: 1130px;
-  list-style-type: none;
-  font-family: sans-serif;
-  font-weight: 500;
-  font-style: normal;
-
-}
-
-.menu5 li {
-  float:left;
-  margin: 3px;
-}
-
-.menu5 a {
-    padding: 4px 7px;
-    text-decoration: none;
-    border-radius: 2px;
-    color: rgba(0, 3, 0, 0.25);
-}
-
-.menu5 a:hover {
-    background-color: white;
-    color: rgba(210, 42, 248, 1);
-    /* border: 1px solid black; */
-}
-
-/* added styling for the active menu item */
-.menu5 .active {
-  color: white;
-  background-color: black;
-}
-
-.menu6 {
-  position: fixed;
-  top: 10px;
-  right: 1060px;
-  list-style-type: none;
-  font-family: sans-serif;
-  font-weight: 500;
-  font-style: normal;
-
-}
-
-.menu6 li {
-  float:left;
-  margin: 3px;
-}
-
-.menu6 a {
-    padding: 4px 7px;
-    text-decoration: none;
-    border-radius: 2px;
-    color: rgba(0, 3, 0, 0.25);
-}
-
-.menu6 a:hover {
-    background-color: white;
-    color: rgba(210, 42, 248, 1);
-    /* border: 1px solid black; */
-}
-
-/* added styling for the active menu item */
-.menu6 .active {
-  color: white;
-  background-color: black;
+#toggle1:checked ~ .menu1 {
+  max-height: 100dvh;
 }
 
 
 
+/* Menu */
+.menu1 {
+  position: absolute;
+  top: 66px; left: 55px;
+  /* margin-left: 50px; */
+  display: -ms-grid;
+  display: grid;
+/*  grid-template-rows: 1fr repeat(4, 0.5fr);*/
+/*  grid-row-gap: 25px;*/
+/*  padding: 0;*/
+  font-family: AllianceNo2;
+  font-size: 30px;
+  list-style: none;
+  clear: both;
+  width: auto;
+  max-height: 0px;
+  word-spacing: 0px;
+  overflow: hidden;
+  transition: max-height .4s ease;
+  /* -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease; */
+/*  background: white;*/
+  z-index: 999;
+}
 
+.menu1 a:first-child {
+  width: 100%;
+  height: 100%;
+/* z-index: 999; */
+}
 
+.menu1 a:last-child {
+ /* z-index: 999; */
+}
 
-.content {
-  margin-left: 40px;
-  padding-top: 80px;
-  height: 2000px;
+.link1 {
+  width: 100%;
+  height: 100%;
+  color: black;
+}
+
+.link1.active,
+.link1:hover {
+  color: red;
+/*  font-family: AllianceNo2-RegularItalic;*/
+  mix-blend-mode: multiply;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .map {
-	height: 5370px;
-   background-position: center;
-   background-repeat: no-repeat;
-   background-size: cover;
-
+  position: fixed;
+  top: 50%; left: 50%;
+  width: 100vw;
+	height: 100vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  transform: translate(-50%, -50%) scale(1);
 }
+
+.range-wrapper{
+  margin-right: 20px;
+  margin-bottom: -38px;
+  position:fixed;
+  bottom:0;
+  right:0;
+/* background-color: #F00;*/
+  color: black;
+  font-family: AllianceNo2;
+  font-size: 25px;
+  width:8rem;
+  height:6rem;
+  /* z-index: 999; */
+}
+
+input[type=range] {
+  -webkit-appearance: none; /* Hides the slider so that custom slider can be made */
+  width: 100%; /* Specific width is required for Firefox. */
+  background: transparent; /* Otherwise white in Chrome */
+}
+
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+input[type=range]:focus {
+  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+input[type=range]::-ms-track {
+  width: 100%;
+  cursor: pointer;
+
+  /* Hides the slider so custom styles can be added */
+  background: transparent; 
+  border-color: transparent;
+  color: transparent;
+}
+
+/* Special styling for WebKit/Blink */
+input[type=range]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: 1px solid #000000;
+  height: 20px;
+  width: 20px;
+  border-radius: 10px;
+  background: black;
+  cursor: pointer;
+  margin-top: -6px; /* You need to specify a margin in Chrome, but in Firefox and IE it is automatic */
+/*  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d; /* Add cool effects to your sliders! */*/
+}
+
+/* All the same stuff for Firefox */
+input[type=range]::-moz-range-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #00F;
+  cursor: pointer;
+}
+
+/* All the same stuff for IE */
+input[type=range]::-ms-thumb {
+  box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+  border: 1px solid #000000;
+  height: 36px;
+  width: 16px;
+  border-radius: 3px;
+  background: #00F;
+  cursor: pointer;
+}
+
+
+input[type=range]::-webkit-slider-runnable-track,
+input[type=range]:focus::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 10px;
+  cursor: pointer;
+  border-radius: 10px;
+  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,0,0,1) 100%);
+}
+
+input[type=range]::-moz-range-track {
+  width: 100%;
+  height: 10px;
+  cursor: pointer;
+  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,0,0,1) 100%);
+}
+
+input[type=range]::-ms-track,
+input[type=range]::-ms-fill-lower,
+input[type=range]::-ms-fill-upper {
+  width: 100%;
+  height: 10px;
+  cursor: pointer;
+  background: linear-gradient(90deg, rgba(255,255,255,1) 0%, rgba(255,0,0,1) 100%);
+}
+
 
 .map .base {
     position: absolute;
@@ -351,11 +477,11 @@ background-size: 100% 100%
 	top: 100%;
 	left: 0;
 	content:attr(data-title);
-	z-index: +1;
+	z-index: 1;
 	width: 99%;
-	//background: rgba(0, 0, 0, 0.5);
-	//border: 1px solid white;
-	//box-shadow: 5px 5px 5px #deff00;
+	/* background: rgba(0, 0, 0, 0.5); */
+	/* border: 1px solid white; */
+	/* box-shadow: 5px 5px 5px #deff00; */
 	color: black;
 	padding: 5px;
 	font-family: Helvetica, Arial, sans-serif;
@@ -368,63 +494,145 @@ background-size: 100% 100%
     top: 0px;
 }
 
-.popup {
-    position: absolute;
-    display: inline-block;
-    width: 200px;
-    height: 100px;
-    background-color: #9FC990;
-    border-radius: 10%;
+.content {
+  position: absolute;
+  border-radius: 15px;
+  border: 1px solid black;
+  inset: 75px 190px 75px 290px;
+  object-position: center;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  padding-top: 2.5rem;
+  padding-bottom: 2.5rem;
+  background: white;
+  mix-blend-mode: overlay, 50%;
+  display: inline-block;
+  overflow: hidden;
+  overflow-y: auto;
+  z-index: 999;
+  opacity: 88%;
+}
+
+.content.hidden {
+  display: none;
+}
+
+.content #abstract { 
+  font-family: AllianceNo2;
+/*  font-size: 16px;*/
+  color: black;
 }
 
 
-.popup::after {
-    content: "";
-    position: absolute;
-    top: 100%;
-    left: 50%;
-    margin-left: -10px;
-    border-width: 10px;
-    border-style: solid;
-    border-color: #9FC990 transparent transparent transparent;
+.content #introduction { 
+  font-family: AllianceNo2;
+/*  font-size: 16px;*/
+  color: black;
 }
 
-.popup span {
-    width: 90%;
-    margin: 10px;
-    display: inline-block;
-    text-align: center;
+.content #part1 { 
+  font-family: AllianceNo2;
+/*  font-size: 16px;*/
+  color: black;
 }
 
-.text {
-  font-style: italic;
-  color: white;
+.content #part2 { 
+  font-family: AllianceNo2;
+/*  font-size: 16px;*/
+  color: black;
 }
 
-.scrolldown{
-  text-align: center;
-  left: 50%;
-  bottom: 5%;
+.content #part3 { 
+  font-family: AllianceNo2;
+/*  font-size: 16px;*/
+  color: black;
+}
+
+.content #part4 { 
+  font-family: AllianceNo2;
+/*  font-size: 16px;*/
+  color: black;
+}
+
+.content #conclusion { 
+  font-family: AllianceNo2;
+/*  font-size: 16px;*/
+  color: black;
+}
+
+.content #epilogue { 
+  font-family: AllianceNo2;
+/*  font-size: 16px;*/
+  color: black;
+}
+
+.content #bibliography { 
+  font-family: AllianceNo2;
+/*  font-size: 16px;*/
+  color: black;
+}
+
+
+.close-btn {
   position: fixed;
-  transform: translate(-50%, -50%);
-  width: auto;
-  height: 27px;
-  background-color: white;
-opacity: 1;
-transition: 1s;
-font-family: sans-serif;
-font-weight: 500;
-font-style: italic;
-z-index: 100;
-
+  margin-left: -65px;
+  margin-top: -42px;
+  color: black;
 }
 
-.scrolldown.scrolled{
-  opacity: 0;
+.close-btn:hover {
+  color: red;
+  mix-blend-mode: multiply;
 }
 
 
 
+
+@media only screen and (max-width: 600px) {
+  .menu1 {
+    display: block;
+} 
+  .range-wrapper {
+    width: 5rem;
+/*  height: 3rem;*/
+
+}
+
+  .content{
+  inset: 177px 40px 65px 40px;
+  padding-left: 2.5rem;
+  padding-right: 2.5rem;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+
+  }
+
+.menu1 {
+top: 60px; left: 18px;
+font-size: 28px;
+word-spacing: 3px;
+
+}
+.close-btn {
+margin-left: -33px;
+margin-top: -42px;
+}
+
+.hamburger1 div {
+  width: 50px;
+  height: 7px;
+
+}
+.help-tip{
+  top: 32px;
+  right: -13px;
+  width: 35px;
+  height: 35px;
+  font-size: 20px;
+  line-height: 38px;
+
+}
+}
 /* @keyframes scrollfadeout {
   0%  {opacity: 1;
   100%  {opacity: 0;}
