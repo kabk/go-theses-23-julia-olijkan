@@ -126,7 +126,7 @@ p:before {
 .help-tip{
   position: absolute;
   top: 36px;
-  right: -14px;
+  right: -12px;
   transform: translate(-50%, -50%);
   margin: auto;
   text-align: center;
@@ -166,7 +166,7 @@ p:before {
   padding: 12px 15px;
   width: 120px;
   height: fit-content;
-  left: -30px;
+  left: -70%;
   top: 50px;
   transform: translate(-50%, 5%);
   border-radius: 10px;
@@ -498,7 +498,7 @@ input[type=range]::-ms-fill-upper {
   position: absolute;
   border-radius: 15px;
   border: 1px solid black;
-  inset: 10vh 23vh 10vh 40vh;
+  inset: 75px 173px 75px 290px;
   object-position: center;
   padding-left: 5rem;
   padding-right: 5rem;
@@ -512,12 +512,6 @@ input[type=range]::-ms-fill-upper {
   z-index: 999;
   opacity: 88%;
 }
-
-.content img {
-width: 70vw;
-height: auto
-}
-
 
 .content.hidden {
   display: none;
@@ -591,10 +585,15 @@ height: auto
   mix-blend-mode: multiply;
 }
 
+.textimage{
+  width:auto !important;
+  max-height: 400px !important;
+}
 
 
 
-@media only screen and (max-width: 800px) {
+
+@media (max-width: 600px) {
   .menu1 {
     display: block;
 } 
@@ -604,18 +603,18 @@ height: auto
 
 }
 
+body.home{
+  overflow-y: scroll;
+}
+
   .content{
-  inset: 24vh 6vh 10vh 6vh;
+  inset: 177px 40px 65px 40px;
   padding-left: 2.5rem;
   padding-right: 2.5rem;
   padding-top: 2rem;
   padding-bottom: 2rem;
 
   }
-.content img {
-width: 70vw;
-height: auto
-}
 
 .menu1 {
 top: 60px; left: 18px;
@@ -642,6 +641,13 @@ margin-top: -42px;
   line-height: 38px;
 
 }
+
+.textimage{
+  max-width:auto !important;
+  max-height: 250px !important;
+}
+
+
 }
 /* @keyframes scrollfadeout {
   0%  {opacity: 1;

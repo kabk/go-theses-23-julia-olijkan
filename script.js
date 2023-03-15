@@ -80,6 +80,16 @@ var originalY;
 window.onload = function() {
     document.onmousedown = startDrag;
     document.onmouseup = stopDrag;
+
+    console.log(window.innerWidth);
+
+    // document.addEventListener("touchstart", function(){
+    //     startDrag;
+    //     console.log("touchstart");
+    // })
+    //     document.addEventListener("touchend", function(){
+    //     stopDrag;
+    // })
 }
 
 function setRandomBackground() {
@@ -223,6 +233,7 @@ function clickEventOnImages() {
 }
 
 function startDrag(e) {
+    console.log("startdrag");
     timeDelta = Date.now(); // get current millis
 
     // determine event object
@@ -251,10 +262,13 @@ function startDrag(e) {
     drag = true;
 
     document.onmousemove = dragDiv; // move div element
+
+
     return false; // prevent default event
 }
 
 function dragDiv(e) {
+    console.log("dragdiv");
     if (!drag) return;
     if (!e) var e = window.event;
 
