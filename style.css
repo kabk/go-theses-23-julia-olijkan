@@ -608,7 +608,7 @@ body.home{
 }
 
   .content{
-  inset: 177px 40px 65px 40px;
+  inset: 160px 40px 65px 40px;
   padding-left: 2.5rem;
   padding-right: 2.5rem;
   padding-top: 2rem;
@@ -618,7 +618,7 @@ body.home{
 
 .menu1 {
 top: 60px; left: 18px;
-font-size: 28px;
+font-size: 23px;
 word-spacing: 3px;
 
 }
@@ -643,8 +643,10 @@ margin-top: -42px;
 }
 
 .textimage{
+  width:100%!important;
   max-width: 100% !important;
-  max-height: 250px !important;
+  height: auto!important;
+  max-height: auto !important;
 }
 
 
