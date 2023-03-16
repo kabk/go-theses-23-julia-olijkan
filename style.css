@@ -772,9 +772,9 @@ p {
 
 h2 {
 
-  font-size: 18px !important ;
+  font-size: 16px !important ;
   font-kerning: 6px;
-  line-height: 20px;
+  line-height: 17px;
   font-style: italic;
 
 
@@ -810,9 +810,9 @@ h3{
 }
 
 h4{
-  font-size: 18px !important ;
+  font-size: 16px !important ;
   font-kerning: 6px;
-  line-height: 20px;
+  line-height: 17px;
   font-style: italic;
 
 }
