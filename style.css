@@ -34,6 +34,11 @@
   src: url('fonts/ZapfinoForteLTPro.woff');
 }
 
+@font-face {
+  font-family: 'Libre-baskerville-v7-latin-italic';
+  src: url('fonts/Libre-baskerville-v7-latin-italic.woff');
+}
+
 * {
 margin: 0;
 padding: 0;
@@ -165,8 +170,10 @@ p:before {
 /*visibility: hidden; */
   display: none;
   position: absolute;
-  font-family: Armag-FuryItalic;
+  font-family: Libre-baskerville-v7-latin-italic ;
+  font-size: 13px !important;
   -webkit-font-smoothing: antialiased;
+  line-height: 0px;
   text-align: center;
   background-color: #FFFFFF;
   padding: 12px 15px;
@@ -630,12 +637,15 @@ p {
 
 h2 {
 
-  font-size: 20px !important;
+  font-size: 18px !important;
+  font-family: Libre-baskerville-v7-latin-italic !important ;
+
 }
 
 
 h1 {
   font-size: 32px !important;
+  font-family: AllianceNo2 !important;
 }
 
 figure {
@@ -643,8 +653,9 @@ figure {
 }
 
 h4{
-  font-size: 20px !important ;
-  line-height: 25px;
+  font-size: 18px !important ;
+  font-family: Libre-baskerville-v7-latin-italic !important ;
+
 }
 
 h5{
@@ -658,6 +669,8 @@ h5{
     display: block;
 } 
   .range-wrapper {
+    margin-right: 15px;
+    margin-bottom: -50px;
     width: 5rem;
 /*  height: 3rem;*/
 
@@ -668,7 +681,7 @@ body.home{
 }
 
   .content{
-  inset: 160px 40px 65px 40px;
+  inset: 145px 40px 60px 40px;
   padding-left: 2.5rem;
   padding-right: 2.5rem;
   padding-top: 2rem;
@@ -677,8 +690,8 @@ body.home{
   }
 
 .menu1 {
-top: 60px; left: 18px;
-font-size: 23px;
+top: 50px; left: 15px;
+font-size: 21px;
 word-spacing: 3px;
 
 }
@@ -688,9 +701,16 @@ margin-top: -37px;
 font-size: 35px !important;
 }
 
+.hamburger1 {
+  margin-left: 10px;
+  margin-top: 6px;
+
+}
+
 .hamburger1 div {
-  width: 50px;
-  height: 7px;
+  width: 40px;
+  height: 6px;
+  margin-top: 5px;
 
 }
 .help-tip{
@@ -698,7 +718,7 @@ font-size: 35px !important;
   right: -9px;
   width: 25px;
   height: 25px;
-  font-size: 20px;
+  font-size: 15px;
   line-height: 27px;
 
 }
@@ -707,6 +727,19 @@ font-size: 35px !important;
 .help-tip:before{
     font-size: 25px;
 }
+
+.help-tip p {   
+  font-size: 10px !important;
+  line-height: 14px;
+  padding: 10px 13px;
+  width: 100px;
+  height: fit-content;
+  left: -38px;
+  top: 85px;
+
+}
+
+
 
 .textimage{
   width:100%!important;
@@ -737,6 +770,12 @@ small {
   font-size: 10px;
   line-height: 12px;
 }
+
+.nextpage {
+  font-size: 13px;
+
+}
+
 
 }
 /* @keyframes scrollfadeout {
