@@ -664,6 +664,11 @@ h5{
 }
 
 
+h6{
+  font-size: 23px !important;
+  font-family: AllianceNo2 !important;
+}
+
 @media (max-width: 600px) {
   .menu1 {
     display: block;
@@ -681,11 +686,11 @@ body.home{
 }
 
   .content{
-  inset: 145px 40px 60px 40px;
-  padding-left: 2.5rem;
-  padding-right: 2.5rem;
-  padding-top: 2rem;
-  padding-bottom: 2rem;
+  inset: 145px 35px 60px 35px;
+  padding-left: 2.0rem;
+  padding-right: 2.0rem;
+  padding-top: 2.0rem;
+  padding-bottom: 2.0rem;
 
   }
 
@@ -696,9 +701,9 @@ word-spacing: 3px;
 
 }
 .close-btn {
-margin-left: -30px;
-margin-top: -37px;
-font-size: 35px !important;
+margin-left: -26px;
+margin-top: -35px;
+font-size: 30px !important;
 }
 
 .hamburger1 {
@@ -722,7 +727,6 @@ font-size: 35px !important;
   line-height: 27px;
 
 }
-
 
 .help-tip:before{
     font-size: 25px;
@@ -758,7 +762,7 @@ h2 {
 }
 
 h1 {
-  font-size: 28px !important;
+  font-size: 24px !important;
 }
 
 figure {
@@ -772,6 +776,11 @@ small {
 
 .nextpage {
   font-size: 13px;
+
+}
+
+h6 {
+  font-size: 16px !important;
 
 }
 
