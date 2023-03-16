@@ -21,7 +21,7 @@
 
 @font-face {
   font-family: 'AllianceNo2-RegularItalic';
-  src: url('fonts/AllianceNo2-RegularItalic.woff');
+  src: url('fonts/AllianceNo2-RegularItalic.woff2');
 }
 
 @font-face {
@@ -129,18 +129,17 @@ p:before {
 /* The icon */
 .help-tip{
   position: absolute;
-  top: 36px;
+  top: 32px;
   right: -12px;
   transform: translate(-50%, -50%);
   margin: auto;
   text-align: center;
   border: 5px solid black;
   border-radius: 50%;
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   font-size: 25px;
-  line-height: 42px;
-  cursor: default;
+  line-height: 37px;
   cursor: pointer;
 
 }
@@ -151,6 +150,7 @@ p:before {
     font-weight: bold;
     font-size: 35px;
     color:black;
+    cursor: pointer;
 }
 
 .help-tip:hover p{
@@ -161,7 +161,8 @@ p:before {
 }
 
 /* The tooltip */
-.help-tip p {    
+.help-tip p {   
+/*visibility: hidden; */
   display: none;
   position: absolute;
   font-family: Armag-FuryItalic;
@@ -171,17 +172,18 @@ p:before {
   padding: 12px 15px;
   width: 120px;
   height: fit-content;
-  left: -70%;
-  top: 50px;
+  left: -38px;
+  top: 52px;
+/*  transform-origin: 100% 0%;*/
   transform: translate(-50%, 5%);
   border-radius: 10px;
 /*  border: 1px solid #E0E0E0; */
   box-shadow: 0 0px 20px 0 rgba(0,0,0,0.1);
   opacity: 88%;
   color: black;
-  font-size: 14px !important;
   line-height: 19px;
   z-index: 9999;
+  cursor: pointer;
 }
 
 .help-tip p a {
@@ -644,6 +646,12 @@ h4{
   font-size: 20px !important ;
   line-height: 25px;
 }
+
+h5{
+
+  font-size: 30px !important;
+}
+
 
 @media (max-width: 600px) {
   .menu1 {
