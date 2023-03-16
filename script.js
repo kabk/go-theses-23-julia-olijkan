@@ -356,6 +356,7 @@ menuLinks.forEach( menuLink => {
 } );
 
 
+
 document.querySelectorAll(".close-btn").forEach(function(closeButtons){
     closeButtons.addEventListener("click", function(){
         closeButtons.parentNode.classList.add("hidden");
