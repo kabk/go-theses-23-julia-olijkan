@@ -637,8 +637,12 @@ p {
 
 h2 {
 
-  font-size: 18px !important;
-  font-family: Libre-baskerville-v7-latin-italic !important ;
+  font-size: 23px !important ;
+  font-family: "adobe-garamond-pro", serif !important;
+  font-kerning: 5px;
+  line-height: 25px;
+  font-style: italic;
+
 
 }
 
@@ -653,8 +657,11 @@ figure {
 }
 
 h4{
-  font-size: 18px !important ;
-  font-family: Libre-baskerville-v7-latin-italic !important ;
+  font-size: 23px !important ;
+  font-family: "adobe-garamond-pro", serif !important;
+  font-kerning: 5px;
+  line-height: 25px;
+  font-style: italic;
 
 }
 
@@ -667,6 +674,11 @@ h5{
 h6{
   font-size: 23px !important;
   font-family: AllianceNo2 !important;
+}
+
+h3{
+  font-size: 23px !important;
+  font-family: AllianceNo2-SemiBold !important;
 }
 
 @media (max-width: 600px) {
@@ -758,7 +770,12 @@ p {
 
 h2 {
 
-  font-size: 15px !important;
+  font-size: 18px !important ;
+  font-kerning: 6px;
+  line-height: 20px;
+  font-style: italic;
+
+
 }
 
 h1 {
@@ -784,6 +801,18 @@ h6 {
 
 }
 
+h3{
+  font-size: 16px !important;
+  font-family: AllianceNo2-SemiBold !important;
+}
+
+h4{
+  font-size: 18px !important ;
+  font-kerning: 6px;
+  line-height: 20px;
+  font-style: italic;
+
+}
 
 }
 /* @keyframes scrollfadeout {
