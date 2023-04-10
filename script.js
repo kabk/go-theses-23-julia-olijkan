@@ -52,7 +52,6 @@ input.addEventListener( "input", event => {
 
 const menuToggle = document.getElementById( 'toggle1' )
 menuToggle.addEventListener( "change", event => {
-
     const contentDiv = document.querySelector( '.content' );
     const contentChapters = document.querySelectorAll( '.content > div' );
 
@@ -78,6 +77,9 @@ var originalX;
 var originalY;
 
 window.onload = function() {
+    document.ontouchstart = startDrag;
+    document.ontouchend = stopDrag;
+
     document.onmousedown = startDrag;
     document.onmouseup = stopDrag;
 
@@ -150,8 +152,6 @@ function baseOnLoad() {
 
     let offsetX = -1 * map.clientWidth * ( mapScale - 1);
     let offsetY = -1 * map.clientHeight * ( mapScale - 1);
-
-    console.log( mapScale, offsetX, offsetY );
 
     /* my smaller images: */
     for (let i = 0; i < imgs.length; i++) {
@@ -239,6 +239,11 @@ function startDrag(e) {
     // determine event object
     if (!e) var e = window.event;
 
+    let event = e;
+    if ( e.targetTouches ) {
+        event = e.targetTouches[ 0 ];
+    }
+
     // prevent default event
     // if(e.preventDefault) e.preventDefault();
 
@@ -253,8 +258,8 @@ function startDrag(e) {
     if (!targ.classList.contains('dragme')) return;
 
     // calculate event X, Y coordinates
-    offsetX = e.clientX;
-    offsetY = e.clientY;
+    offsetX = event.clientX;
+    offsetY = event.clientY;
 
     // calculate integer values for top and left properties
     coordX = parseInt(targ.style.left);
@@ -262,6 +267,7 @@ function startDrag(e) {
     drag = true;
 
     document.onmousemove = dragDiv; // move div element
+    document.ontouchmove = dragDiv; // move div element
 
 
     return false; // prevent default event
@@ -272,6 +278,12 @@ function dragDiv(e) {
     if (!drag) return;
     if (!e) var e = window.event;
 
+
+    let event = e;
+    if ( e.targetTouches ) {
+        event = e.targetTouches[ 0 ];
+    }
+
     var map = document.querySelector(".map");
 	  maxLeft = map.offsetWidth - parseInt( targ.style.width );
     maxTop = map.offsetHeight - parseInt( targ.style.height );
@@ -280,21 +292,23 @@ function dragDiv(e) {
     const zoomFactor = zoomSlider.value;
 
     // move div element and check for borders
-    let newLeft = coordX + ( e.clientX - offsetX ) / zoomFactor;
+    let newLeft = coordX + ( event.clientX - offsetX ) / zoomFactor;
     // if (newLeft < maxLeft && newLeft > minLeft) 
     targ.style.left = newLeft + 'px'
 
-    let newTop = coordY + ( e.clientY - offsetY ) / zoomFactor;
+    let newTop = coordY + ( event.clientY - offsetY ) / zoomFactor;
+    console.log( event.clientY, offsetY )
     console.log( minTop, newTop, maxTop );
 //    if (newTop < maxTop && newTop > minTop) targ.style.top = newTop + 'px'
     // if (newTop < maxTop && newTop > minTop) 
     targ.style.top = newTop + 'px'
-
+console.log( targ );
     return false; // prevent default event
 }
 
 function stopDrag() {
     if (typeof drag == "undefined") return;
+    console.log("stopDrag");
 
     if (drag) {
         if (Date.now() - timeDelta > 150) { // we dragged
@@ -342,8 +356,16 @@ const displayChapter = chapterId => {
 menuLinks.forEach( menuLink => {
   menuLink.addEventListener( 'click', ( ) => {
 
+let targetLink = menuLink;
+if ( !targetLink.parentNode.classList.contains( 'menu1'  ) ) {
+    menuLinks.forEach( link => {
+        if ( link.parentNode.classList.contains( 'menu1' )
+          && link.dataset.chapter == menuLink.dataset.chapter )
+            targetLink = link;
+    } );
+}
     menuLinks.forEach( otherLink => {
-        otherLink.classList.toggle( 'active', ( otherLink == menuLink ) );
+        otherLink.classList.toggle( 'active', ( otherLink == targetLink ) );
         // if ( otherLink == menuLink ) {
         //     otherLink.classList.add( 'active' );
         // } else {
