@@ -613,7 +613,7 @@ input[type=range]::-ms-fill-upper {
 .close-btn {
   position: fixed;
   margin-left: -115px;
-  margin-left: calc( 20px  - clamp( 20px, 5vw, 8rem ) );
+  margin-left: calc( 10px  - clamp( 25px, 5vw, 8rem ) );
   margin-top: -38px;
   color: black;
   cursor: pointer;
