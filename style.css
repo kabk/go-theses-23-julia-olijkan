@@ -548,8 +548,8 @@ input[type=range]::-ms-fill-upper {
   border: 1px solid black;
   inset: 75px 230px 75px 290px;
   object-position: center;
-  padding-left: clamp( 20px, 5vw, 8rem);
-  padding-right: clamp( 20px, 5vw, 8rem);
+  padding-left: clamp( 25px, 6vw, 8rem);
+  padding-right: clamp( 25px, 6vw, 8rem);
   padding-top: 2rem;
   padding-bottom: 2rem;
   background: white;
@@ -624,7 +624,7 @@ input[type=range]::-ms-fill-upper {
 .close-btn {
   position: fixed;
   margin-left: -115px;
-  margin-left: calc( 10px  - clamp( 25px, 5vw, 8rem ) );
+  margin-left: calc( 10px  - clamp( 25px, 6vw, 8rem ) );
   margin-top: -38px;
   color: black;
   cursor: pointer;
@@ -655,9 +655,6 @@ h2 {
   font-kerning: 5px;
   line-height: 25px;
   font-style: italic;
-
-
-
 }
 
 
@@ -677,7 +674,6 @@ h4{
   line-height: 25px;
   font-style: italic;
   
-
 }
 
 h5{
