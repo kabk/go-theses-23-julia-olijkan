@@ -39,6 +39,17 @@
   src: url('fonts/Libre-baskerville-v7-latin-italic.woff');
 }
 
+@font-face {
+  font-family: 'Gambetta-Italic';
+  src: url('fonts/Gambetta-Italic.woff');
+}
+
+@font-face {
+  font-family: 'Gambetta-LightItalic';
+  src: url('fonts/Gambetta-LightItalic.woff');
+}
+
+
 * {
 margin: 0;
 padding: 0;
@@ -639,8 +650,8 @@ p {
 
 h2 {
 
-  font-size: 23px !important ;
-  font-family: "adobe-garamond-pro", serif !important;
+  font-size: 19px !important ;
+  font-family: "Gambetta-LightItalic", serif !important;
   font-kerning: 5px;
   line-height: 25px;
   font-style: italic;
@@ -660,8 +671,8 @@ figure {
 }
 
 h4{
-  font-size: 23px !important ;
-  font-family: "adobe-garamond-pro", serif !important;
+  font-size: 19px !important ;
+  font-family: "Gambetta-LightItalic", serif !important;
   font-kerning: 5px;
   line-height: 25px;
   font-style: italic;
