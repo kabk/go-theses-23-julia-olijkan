@@ -59,8 +59,12 @@ border: 0;
 
 }
 
-html,body { height: 100% }
-
+html, body { 
+  height: 100%;
+  /* pointer-events: none; */
+  overflow: hidden;
+}
+/* body * { pointer-events: auto } */
 
 body.home { 
   overflow: hidden
@@ -621,6 +625,9 @@ input[type=range]::-ms-fill-upper {
   color: black;
 }
 
+.content #bibliography a { 
+  word-break: break-all;
+}
 
 .close-btn {
   position: fixed;
@@ -826,6 +833,25 @@ h4{
   font-style: italic;
 
 }
+}
+
+@media screen and (max-width: 800px) {
+  .dragme {
+    cursor: move;
+    left: 0px;
+    top: 0px;
+
+    width: auto !important;
+    max-width: 80vw !important; 
+    height: auto !important;
+    max-height: 80vh !important;
+  }
+  .dragme img {
+    width: auto !important;
+    max-width: 80vw !important; 
+    height: auto !important;
+    max-height: 80vh !important;
+  }
 
 }
 /* @keyframes scrollfadeout {

@@ -382,6 +382,9 @@ if ( !targetLink.parentNode.classList.contains( 'menu1'  ) ) {
 document.querySelectorAll(".close-btn").forEach(function(closeButtons){
     closeButtons.addEventListener("click", function(){
         closeButtons.parentNode.classList.add("hidden");
+
+        const menuLinks = document.querySelectorAll( '.menu1 .link1' );
+        menuLinks.forEach( menuLink => menuLink.classList.remove( 'active' ) );
     })
 })
 
