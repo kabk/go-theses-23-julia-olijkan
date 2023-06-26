@@ -69,8 +69,8 @@ input.dispatchEvent( event );
 
 baseOnLoad()
 
-let backgrounds = ['', ];
-setRandomBackground();
+// let backgrounds = ['', ];
+// setRandomBackground();
 
 var originalX;
 var originalY;
@@ -92,10 +92,10 @@ window.onload = function() {
     // })
 }
 
-function setRandomBackground() {
-  var background = backgrounds[Math.floor(Math.random() * backgrounds.length)];
-  document.querySelector('body').style.backgroundImage = `url('./images/${background}')`;
-}
+// function setRandomBackground() {
+//   var background = backgrounds[Math.floor(Math.random() * backgrounds.length)];
+//   document.querySelector('body').style.backgroundImage = `url('./images/${background}')`;
+// }
 
 
 function sensorClick () {
