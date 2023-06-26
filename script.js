@@ -9,7 +9,6 @@ let imagesOnDocument = [];
 let stackOffset = 140;
 
 let imgs = [
-
     { 'src': "images/1.jpg", 'class': 'small-1', 'width': 780, 'height': 530, 'blendmode': 'lighten'},
     { 'src': "images/2.jpg", 'width': 600, 'height': 700, 'blendmode': 'lighten' },
     { 'src': "images/3.jpg", 'width': 600, 'height': 600, 'blendmode': 'MULTIPLY' },
@@ -60,7 +59,7 @@ menuToggle.addEventListener( "change", event => {
       contentChapters.forEach( contentChapter => {
           contentChapter.style.display = 'none';
       } );
-      
+
       contentDiv.classList.add( 'hidden' );
     }
 })
@@ -83,8 +82,7 @@ window.onload = function() {
     document.onmousedown = startDrag;
     document.onmouseup = stopDrag;
 
-    console.log(window.innerWidth);
-
+    // console.log(window.innerWidth);
     // document.addEventListener("touchstart", function(){
     //     startDrag;
     //     console.log("touchstart");
@@ -233,7 +231,7 @@ function clickEventOnImages() {
 }
 
 function startDrag(e) {
-    console.log("startdrag");
+    // console.log("startdrag");
     timeDelta = Date.now(); // get current millis
 
     // determine event object
@@ -274,7 +272,7 @@ function startDrag(e) {
 }
 
 function dragDiv(e) {
-    console.log("dragdiv");
+    // console.log("dragdiv");
     if (!drag) return;
     if (!e) var e = window.event;
 
@@ -293,22 +291,22 @@ function dragDiv(e) {
 
     // move div element and check for borders
     let newLeft = coordX + ( event.clientX - offsetX ) / zoomFactor;
-    // if (newLeft < maxLeft && newLeft > minLeft) 
+    // if (newLeft < maxLeft && newLeft > minLeft)
     targ.style.left = newLeft + 'px'
 
     let newTop = coordY + ( event.clientY - offsetY ) / zoomFactor;
-    console.log( event.clientY, offsetY )
-    console.log( minTop, newTop, maxTop );
-//    if (newTop < maxTop && newTop > minTop) targ.style.top = newTop + 'px'
-    // if (newTop < maxTop && newTop > minTop) 
+    // console.log( event.clientY, offsetY )
+    // console.log( minTop, newTop, maxTop );
+    // if (newTop < maxTop && newTop > minTop) targ.style.top = newTop + 'px'
+    // if (newTop < maxTop && newTop > minTop)
     targ.style.top = newTop + 'px'
-console.log( targ );
+    // console.log( targ );
     return false; // prevent default event
 }
 
 function stopDrag() {
     if (typeof drag == "undefined") return;
-    console.log("stopDrag");
+    // console.log("stopDrag");
 
     if (drag) {
         if (Date.now() - timeDelta > 150) { // we dragged
@@ -323,7 +321,6 @@ function stopDrag() {
     }
 
     drag = false;
-
 }
 
 function arraymove(arr, fromIndex, toIndex) {
@@ -351,7 +348,7 @@ const displayChapter = chapterId => {
   } );
   contentDiv.classList.remove( 'hidden' );
   contentDiv.scrollTop = 0;
-  console.log( chapterId );
+  // console.log( chapterId );
 }
 menuLinks.forEach( menuLink => {
   menuLink.addEventListener( 'click', ( ) => {
@@ -373,7 +370,7 @@ if ( !targetLink.parentNode.classList.contains( 'menu1'  ) ) {
         // }
     } );
 
-    displayChapter( menuLink.dataset.chapter ); 
+    displayChapter( menuLink.dataset.chapter );
   } );
 } );
 
